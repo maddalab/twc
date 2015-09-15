@@ -44,6 +44,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tweets = tweets
                 self.refreshControl.endRefreshing()
                 self.tweetTableView.reloadData()
+            } else {
+                NSLog("Failed to load data \(error)")
             }
         })
     }
