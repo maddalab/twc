@@ -94,6 +94,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             case "newTweetSegue":
                 let newTweetViewController = segue.destinationViewController as! NewTweetViewController
                 newTweetViewController.delegate = self
+            case "viewTweetSegue":
+                let displayTweetViewContoller = segue.destinationViewController as! DisplayTweetViewController
+                let cell = sender as! UITableViewCell
+                let indexPath = tweetTableView.indexPathForCell(cell)
+                let tweet = tweets![indexPath!.row]
+                displayTweetViewContoller.tweet = tweet
             default: NSLog("Unknown segue \(segue.identifier)")
         }
     }
