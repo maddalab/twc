@@ -8,17 +8,27 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tweetTableView: UITableView!
     var tweets: [Tweet]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tweetTableView.delegate = self
+        tweetTableView.dataSource = self
+        tweetTableView.estimatedRowHeight = 220
+        tweetTableView.rowHeight = UITableViewAutomaticDimension
+        
+        loadData()
+    }
+    
+    func loadData() {
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-            
             if let tweets = tweets {
                 self.tweets = tweets
+                self.tweetTableView.reloadData()
             }
         })
     }
@@ -30,6 +40,26 @@ class TweetsViewController: UIViewController {
     
     @IBAction func onSignout(sender: UIButton) {
         User.currentUser?.logout()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let tweets = tweets {
+            return tweets.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell", forIndexPath: indexPath) as! TweetTableViewCell
+        cell.tweet = tweets![indexPath.row]
+        cell.layoutIfNeeded()
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     /*

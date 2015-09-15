@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2B16181BA812970056204A /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B16171BA812970056204A /* TweetTableViewCell.swift */; };
 		0C41285B1BA7466400206686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C41285A1BA7466400206686 /* AppDelegate.swift */; };
 		0C41285D1BA7466400206686 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C41285C1BA7466400206686 /* ViewController.swift */; };
 		0C4128601BA7466400206686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C41285E1BA7466400206686 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C2B16171BA812970056204A /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		0C4128551BA7466400206686 /* twc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C4128591BA7466400206686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C41285A1BA7466400206686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C2B16161BA8127E0056204A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C2B16171BA812970056204A /* TweetTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		0C41284C1BA7466400206686 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		0C4128571BA7466400206686 /* twc */ = {
 			isa = PBXGroup;
 			children = (
+				0C2B16161BA8127E0056204A /* Views */,
 				0CA941831BA78A1000174EBE /* Models */,
 				0CA941801BA76C7300174EBE /* API */,
 				0C41285A1BA7466400206686 /* AppDelegate.swift */,
@@ -307,6 +318,7 @@
 				0C41285D1BA7466400206686 /* ViewController.swift in Sources */,
 				0CA941821BA76CD400174EBE /* TwitterClient.swift in Sources */,
 				0C41285B1BA7466400206686 /* AppDelegate.swift in Sources */,
+				0C2B16181BA812970056204A /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
