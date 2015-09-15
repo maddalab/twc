@@ -267,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6S-Mm-XR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403" y="577"/>
+            <point key="canvasLocation" x="1409" y="711"/>
         </scene>
         <!--Details-->
         <scene sceneID="cib-RZ-wMY">
@@ -401,6 +401,7 @@
                         <outlet property="tweetText" destination="Hmg-3B-aFK" id="Btw-Rk-6Dp"/>
                         <outlet property="userHandleLabel" destination="fEB-2K-n40" id="eLk-CU-PAE"/>
                         <outlet property="userNameLabel" destination="TDs-hf-jzc" id="1fe-FI-gta"/>
+                        <segue destination="gVG-pu-0G4" kind="push" identifier="replySegue" id="aUT-6e-T2h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhj-9O-4Yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -436,4 +437,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="aUT-6e-T2h"/>
+    </inferredMetricsTieBreakers>
 </document>

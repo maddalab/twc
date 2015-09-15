@@ -93,7 +93,7 @@ class DisplayTweetViewController: UIViewController {
     }
     
     func onReply(sender: UITapGestureRecognizer) {
-        //performSegueWithIdentifier("replySegue", sender: self)
+        performSegueWithIdentifier("replySegue", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,14 +102,14 @@ class DisplayTweetViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        var vc = segue.destinationViewController as! NewTweetViewController
+        vc.title = "Reply"
+        vc.replyTweet = tweet
     }
-    */
-
 }
