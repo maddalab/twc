@@ -48,23 +48,12 @@ class Tweet: NSObject {
         return tweets
     }
     
-    func getCompactDate() -> String {
-        if createdAt == nil {
-            return ""
-        }
-        let units: NSCalendarUnit = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitMonth
-        let components: NSDateComponents = NSCalendar.currentCalendar().components(units, fromDate: createdAt!, toDate: NSDate(), options: nil)
+    func getDuration() -> String {
         
-        if (components.month > 0) {
-            return "\(components.month)m"
-        } else if (components.day > 0) {
-            return "\(components.day)d"
-        } else if (components.hour > 0) {
-            return "\(components.hour)h"
-        } else if (components.minute > 0) {
-            return "\(components.minute)m"
+        if let createdAt = createdAt {
+            return createdAt.shortTimeAgoSinceNow()
         } else {
-            return "Now"
+            return ""
         }
     }
 }

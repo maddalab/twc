@@ -27,7 +27,7 @@ class TweetTableViewCell: UITableViewCell {
                 userNameLabel.text = user.name
                 profileImage.setImageWithURL(NSURL(string: user.profileImageURL!))
             }
-            timestampLabel.text = tweet.getCompactDate()
+            timestampLabel.text = tweet.getDuration()
             if (tweet.favorited!) {
                 favoriteImage.image = UIImage(named: "fav-on")
             } else {

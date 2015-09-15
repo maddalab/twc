@@ -4,6 +4,7 @@ platform :ios, '8.0'
 target 'twc' do
   pod "AFNetworking"
   pod "BDBOAuth1Manager"
+  pod "DateTools"
 end
 
 target 'twcTests' do
