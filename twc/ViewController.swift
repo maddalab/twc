@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        TwitterClient.sharedInstance
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +23,14 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func onLogin(sender: UIButton) {
+        TwitterClient.sharedInstance.loginWithCompletion { (user, error) -> () in
+            if let user = user {
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            } else {
+                NSLog("User login failed")
+            }
+        }
+    }
 }
 
