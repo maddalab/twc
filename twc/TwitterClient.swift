@@ -51,6 +51,20 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             }
         )
     }
+
+    func postTweetWithStatus(status: String, respondingTo: Tweet?, completion: (success: Bool?, error: NSError?) -> ()) {
+        var parameters: [String: String] = ["status": status]
+        
+        if let respondingTo = respondingTo {
+            parameters["in_reply_to_status_id"] = "\(respondingTo.id!)"
+        }
+        
+        POST("1.1/statuses/update.json", parameters: parameters, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            completion(success: true, error: nil)
+            }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                completion(success: false, error: error)
+        }
+    }
     
     func openURL(url: NSURL) {
         fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential(queryString: url.query), success: { (accessToken) -> Void in

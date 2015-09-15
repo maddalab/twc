@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewTweetDelegate {
 
     @IBOutlet weak var tweetTableView: UITableView!
     var tweets: [Tweet]?
@@ -38,6 +38,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func loadData() {
+        self.refreshControl.beginRefreshing()
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
             if let tweets = tweets {
                 self.tweets = tweets
@@ -75,15 +76,26 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    func onNewTweet() {
+        loadData()
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        switch(segue.identifier!) {
+            case "newTweetSegue":
+                let newTweetViewController = segue.destinationViewController as! NewTweetViewController
+                newTweetViewController.delegate = self
+            default: NSLog("Unknown segue \(segue.identifier)")
+        }
     }
-    */
 
 }
