@@ -14,11 +14,9 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var userHandleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var retweetedImage: UIImageView!
     @IBOutlet weak var favoriteImage: UIImageView!
     @IBOutlet weak var retweetImage: UIImageView!
     @IBOutlet weak var replyImage: UIImageView!
-    @IBOutlet weak var retweetedLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
 
     var tweet: Tweet! {
@@ -29,7 +27,6 @@ class TweetTableViewCell: UITableViewCell {
                 userNameLabel.text = user.name
                 profileImage.setImageWithURL(NSURL(string: user.profileImageURL!))
             }
-            retweetedLabel.hidden = true
             timestampLabel.text = tweet.getCompactDate()
             if (tweet.favorited!) {
                 favoriteImage.image = UIImage(named: "fav-on")

@@ -13,14 +13,27 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tweetTableView: UITableView!
     var tweets: [Tweet]?
     
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tweetTableView.delegate = self
         tweetTableView.dataSource = self
-        tweetTableView.estimatedRowHeight = 220
+        tweetTableView.estimatedRowHeight = 250
         tweetTableView.rowHeight = UITableViewAutomaticDimension
         
+        // Add refresh control to the tableView
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        tweetTableView.insertSubview(refreshControl, atIndex:0)
+        
+        loadData()
+    }
+    
+    // When refresh is triggered, change the title and load the data
+    func onRefresh() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Loading data...")
         loadData()
     }
     
@@ -28,6 +41,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
             if let tweets = tweets {
                 self.tweets = tweets
+                self.refreshControl.endRefreshing()
                 self.tweetTableView.reloadData()
             }
         })

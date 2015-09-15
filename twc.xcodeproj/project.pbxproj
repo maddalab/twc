@@ -104,12 +104,11 @@
 		0C4128571BA7466400206686 /* twc */ = {
 			isa = PBXGroup;
 			children = (
+				0C874A791BA8253800E715B5 /* Contollers */,
 				0C2B16161BA8127E0056204A /* Views */,
 				0CA941831BA78A1000174EBE /* Models */,
 				0CA941801BA76C7300174EBE /* API */,
 				0C41285A1BA7466400206686 /* AppDelegate.swift */,
-				0C41285C1BA7466400206686 /* ViewController.swift */,
-				0CA941881BA7AB6600174EBE /* TweetsViewController.swift */,
 				0C41285E1BA7466400206686 /* Main.storyboard */,
 				0C4128611BA7466400206686 /* Images.xcassets */,
 				0C4128631BA7466400206686 /* LaunchScreen.xib */,
@@ -141,6 +140,15 @@
 				0C41286F1BA7466400206686 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0C874A791BA8253800E715B5 /* Contollers */ = {
+			isa = PBXGroup;
+			children = (
+				0C41285C1BA7466400206686 /* ViewController.swift */,
+				0CA941881BA7AB6600174EBE /* TweetsViewController.swift */,
+			);
+			name = Contollers;
 			sourceTree = "<group>";
 		};
 		0CA941801BA76C7300174EBE /* API */ = {
