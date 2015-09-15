@@ -31,4 +31,4 @@ Time spent: `<Number of hours spent>`
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](https://github.com/maddalab/twc/blob/master/twc.gif)
